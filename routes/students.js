@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
   });
 
 router.post('/', function(req, res, next) {
-    console.log("ID: " + new_id);
     var student = new Student({
         _id: new_id,
         firstname: req.body.firstname,
@@ -26,8 +25,6 @@ router.post('/', function(req, res, next) {
         classes: [],
         studypoints: []
       });
-
-      console.log("STUDENT:" + student)
 
     student.save(function(err) {
         if (err) {
