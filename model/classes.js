@@ -5,11 +5,10 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var ClassSchema = new Schema({
-  _id: Number,
   title: String,
-  teachers: Array,
-  students: Array,
-  lessons: Array,
+  teachers: [{type: Schema.Types.ObjectId, ref: 'Teacher'}],
+  students: [{type: Schema.Types.ObjectId, ref: 'Student' }],
+  lessons: [{type: Schema.Types.ObjectId, ref: 'Lesson'}],
 });
 
 var Class = mongoose.model('Class', ClassSchema);

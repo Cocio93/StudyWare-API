@@ -3,15 +3,12 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://CrunchyPancake:Klippe911@ds151014.mlab.com:51014/mlab_db');
 var Schema = mongoose.Schema;
 
-// create a schema
 var StudentSchema = new Schema({
-  _id: Number,
+  _id: { type: Schema.ObjectId, auto: true },
   firstname: String,
   lastname: String,
   username: String,
-  password: String,
-  classes: Array,
-  studypoints: Array
+  password: String
 });
 
 var Student = mongoose.model('Student', StudentSchema);
